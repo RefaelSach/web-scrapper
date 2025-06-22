@@ -18,24 +18,24 @@ A containerized Python scraper for extracting discussion content from examtopics
 1. **Clone/Download the files:**
    ```bash
    # Create project directory
-   mkdir exam-scraper && cd exam-scraper
+   mkdir web-scrapper && cd web-scrapper
    
    # Download the files (scraper.py, Dockerfile, requirements.txt, docker-compose.yml)
    ```
 
 2. **Build the Docker image:**
    ```bash
-   docker build -t exam-scraper .
+   docker build -t web-scrapper .
    ```
 
 3. **Run the scraper:**
    ```bash
    # Basic usage
-   docker run --rm -v $(pwd)/output:/app/output exam-scraper \
+   docker run --rm -v $(pwd)/output:/app/output web-scrapper \
      --company vmware --exam-id 2v0-11.25
    
    # With additional options
-   docker run --rm -v $(pwd)/output:/app/output exam-scraper \
+   docker run --rm -v $(pwd)/output:/app/output web-scrapper \
      --company cisco --exam-id 200-301 --max-pages 5 --verbose
    ```
 
@@ -93,19 +93,19 @@ optional arguments:
 
 ```bash
 # VMware certification
-docker run --rm -v $(pwd)/output:/app/output exam-scraper \
+docker run --rm -v $(pwd)/output:/app/output web-scrapper \
   --company vmware --exam-id 2v0-11.25
 
 # Cisco certification with custom settings
-docker run --rm -v $(pwd)/output:/app/output exam-scraper \
+docker run --rm -v $(pwd)/output:/app/output web-scrapper \
   --company cisco --exam-id 200-301 --max-pages 10 --delay 1.5
 
 # Microsoft certification with verbose output
-docker run --rm -v $(pwd)/output:/app/output exam-scraper \
+docker run --rm -v $(pwd)/output:/app/output web-scrapper \
   --company microsoft --exam-id az-104 --verbose
 
 # Custom output directory
-docker run --rm -v /path/to/custom/output:/app/output exam-scraper \
+docker run --rm -v /path/to/custom/output:/app/output web-scrapper \
   --company comptia --exam-id sy0-601
 ```
 
@@ -175,7 +175,7 @@ The scraper works with any company available on examtopics.com, including:
 docker ps -a
 
 # View container logs
-docker logs exam-scraper
+docker logs web-scrapper
 
 # Remove old containers
 docker container prune
